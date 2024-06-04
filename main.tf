@@ -43,7 +43,7 @@ sudo yum install cyrus-sasl cyrus-sasl-gssapi \
      openldap openssl tcp_wrappers-libs xz-libs
 sudo service mongodb-mms-automation-agent start
 EOF
-#   vpc_security_group_ids = ["sg-09eed3757e813e8fb"] #this wasn't needed at all because the default inbound is open to all via ssh and tcp
+#   vpc_security_group_ids = ["sg-09eed3757e813e8fb"] #this wasn't needed at all because the default inbound is open to all via ssh and tcp 
 
   tags = {
     Name = "cm-demo-server"
