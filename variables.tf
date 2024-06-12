@@ -38,7 +38,7 @@ variable "mongodb_automation_agent_script" {
 variable "num_instances" {
   description = "How many EC2 instances to spin up"
   type = number
-  default = 3
+  default = 1
 }
 
 variable "ami" {

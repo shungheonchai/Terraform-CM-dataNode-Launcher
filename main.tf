@@ -22,8 +22,8 @@ resource "aws_instance" "cm-demo-server" {
   count         = var.num_instances
   key_name      = var.key_name
   associate_public_ip_address = true
-  user_data = var.mongodb_automation_agent_script
-  vpc_security_group_ids =  var.security_group
-
+  user_data = var.mongodb_automation_agent_script #This is the custom script that needs to be migrated to a remote-exec
+  # vpc_security_group_ids =  var.security_group
   tags = var.tag
+
 }

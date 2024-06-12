@@ -12,8 +12,19 @@ terraform plan
 terraform apply
 ```
 
+After the above scripts the following will happen 
+1. Creates the number of EC2
+2. Hostname changed to the public IPv4 DNS
+3. MongoDB Automation Agent downloaded to the EC2 instances
+4. Cloud Manager shows the EC2's with the reachable hostnames
+5. Use any desired performance test scripts such as mLocust or POC-Driver to mock up
+
+`java -jar ./bin/POCDriver.jar --host "mongodb://{userName}:{password}@{ec2-host-name}"`
+
 When finished with everything you may allow the reaper to work its magic with the date you specified or run the terraform code below to delete
 
 ```
 terraform destroy
 ```
+
+
