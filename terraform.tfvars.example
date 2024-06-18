@@ -12,32 +12,6 @@ cluster_region = "us-east-1"
 
 num_instances = 3
 
-mongodb_automation_agent_script = <<EOF
-#!/bin/bash
-sudo echo "preserve_hostname: true" >> /etc/cloud/cloud.cfg
-PUBLIC_DNS=$(curl http://169.254.169.254/latest/meta-data/public-hostname)
-sudo hostnamectl set-hostname $PUBLIC_DNS
-sudo reboot
-curl -OL https://cloud.mongodb.com/download/agent/automation/mongodb-mms-automation-agent-manager-13.17.0.8870-1.x86_64.rpm
-sudo rpm -U mongodb-mms-automation-agent-manager-13.17.0.8870-1.x86_64.rpm
-sudo rm /etc/mongodb-mms/automation-agent.config
-sudo echo "mmsGroupId=664f79d9388c7054f8ccb39d" >> /etc/mongodb-mms/automation-agent.config
-sudo echo "mmsApiKey=664fbc5842cafc619257d9b371343f062f4a202f9af153bcd8ad74a4" >> /etc/mongodb-mms/automation-agent.config
-sudo echo "mmsBaseUrl=https://api-agents.mongodb.com" >> /etc/mongodb-mms/automation-agent.config
-sudo echo "logFile=/var/log/mongodb-mms-automation/automation-agent.log" >> /etc/mongodb-mms/automation-agent.config
-sudo echo "mmsConfigBackup=/var/lib/mongodb-mms-automation/mms-cluster-config-backup.json" >> /etc/mongodb-mms/automation-agent.config
-sudo echo "logLevel=INFO" >> /etc/mongodb-mms/automation-agent.config
-sudo echo "maxLogFiles=10" >> /etc/mongodb-mms/automation-agent.config
-sudo echo "maxLogFileSize=268435456" >> /etc/mongodb-mms/automation-agent.config
-sudo mkdir -p /data
-sudo chown mongod:mongod /data
-sudo yum install cyrus-sasl cyrus-sasl-gssapi \
-     cyrus-sasl-plain krb5-libs libcurl \
-     lm_sensors-libs net-snmp net-snmp-agent-libs \
-     openldap openssl tcp_wrappers-libs xz-libs
-sudo service mongodb-mms-automation-agent start
-EOF
-
 tag = {}
 
 security_group = []

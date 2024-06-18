@@ -9,7 +9,7 @@ variable "secret_key" {
 }
 
 variable "session_token" {
-    description = "AWS session token that may not be needed in the future when a dedicated user role is in place from AWS IAM"
+    description = "AWS session token. Only needed when you are using this script yourself and not from the Specialist"
     type = string
 }
 
@@ -29,16 +29,10 @@ variable "cluster_region" {
     default = "us-east-1"
 }
 
-variable "mongodb_automation_agent_script" {
-    description = "the long script..."
-    type = string
-    #may need to look at way to use template for this in the future
-}
-
 variable "num_instances" {
   description = "How many EC2 instances to spin up"
   type = number
-  default = 1
+  default = 3
 }
 
 variable "ami" {
