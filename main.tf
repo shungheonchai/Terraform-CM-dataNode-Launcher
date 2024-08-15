@@ -23,8 +23,8 @@ sudo echo "preserve_hostname: true" >> /etc/cloud/cloud.cfg
 PUBLIC_DNS=$(curl http://169.254.169.254/latest/meta-data/public-hostname)
 sudo hostnamectl set-hostname $PUBLIC_DNS
 sudo reboot
-curl -OL https://cloud.mongodb.com/download/agent/automation/mongodb-mms-automation-agent-manager-13.17.0.8870-1.x86_64.rpm
-sudo rpm -U mongodb-mms-automation-agent-manager-13.17.0.8870-1.x86_64.rpm
+curl -OL https://cloud.mongodb.com/download/agent/automation/mongodb-mms-automation-agent-manager-13.20.2.9015-1.x86_64.rpm
+sudo rpm -U mongodb-mms-automation-agent-manager-13.20.2.9015-1.x86_64.rpm
 sudo rm /etc/mongodb-mms/automation-agent.config
 sudo echo "mmsGroupId=${var.MongoDB_ProjectId}" >> /etc/mongodb-mms/automation-agent.config
 sudo echo "mmsApiKey=${var.MongoDB_API_key}" >> /etc/mongodb-mms/automation-agent.config
