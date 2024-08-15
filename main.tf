@@ -13,7 +13,7 @@ provider "aws" {
   region  = var.cluster_region
   access_key = var.access_key
   secret_key = var.secret_key
-  # token = var.session_token
+  token = var.session_token
 }
 
 locals {
@@ -51,7 +51,7 @@ resource "aws_instance" "cm-demo-server" {
   key_name      = var.key_name
   associate_public_ip_address = true
   user_data = local.mongodb_automation_agent_script
-  # vpc_security_group_ids =  var.security_group
   tags = var.tag
+  # vpc_security_group_ids =  var.security_group
 
 }

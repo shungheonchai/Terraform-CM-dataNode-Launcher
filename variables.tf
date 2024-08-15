@@ -51,23 +51,23 @@ variable "tag" {
   description = "Tags that would allow the reaper to take action on the expire-on"
   type = map(string)
   default = {
-    Name = "cm-demo-server"
-    owner = "shawn.chai"
-    purpose = "demo"
-    expire-on = "2024-06-05"
-    project = "CM Demo"
+    Name = "DEFAULT-cm-demo-server"
+    owner = "Automated terraform default"
+    purpose = "Default"
+    expire-on = "2000-01-01"
+    project = "Default Value"
   }
 }
 
-variable "security_group" {
-  description = "network security that allows SSH and TCP connecition on the correct port. May need to restrict this even further"
-  type = list(string)
-  default = ["sg-09eed3757e813e8fb"]
-  #doesn't necessarily help anything because even without this variable, the automatic configuration is open to all connections
-}
+# Below doesn't necessarily help anything because even without this variable, the automatic configuration is open to all connections
+# variable "security_group" {
+#   description = "network security that allows SSH and TCP connecition on the correct port. May need to restrict this even further"
+#   type = list(string)
+#   default = ["sg-09eed3757e813e8fb"]
+# }
 
 variable "key_name" {
   description = "Name of the person asking to provision"
   type = string
-  default = "shawn.chai"
+  default = "DEFAULT"
 }

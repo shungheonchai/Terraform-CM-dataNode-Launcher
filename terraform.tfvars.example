@@ -10,10 +10,6 @@ MongoDB_API_key = ""
 
 cluster_region = "us-east-1"
 
-num_instances = 3
-
 tag = {}
-
-security_group = []
 
 key_name = ""

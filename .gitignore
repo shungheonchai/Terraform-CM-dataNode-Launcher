@@ -1,4 +1,6 @@
 terraform.tfvars
+# MacOS specific files
+.DS_Store
 
 # Local .terraform directories
 **/.terraform/*
